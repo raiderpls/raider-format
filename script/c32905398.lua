@@ -66,10 +66,12 @@ function s.operation1(e,tp,eg,ep,ev,re,r,rp)
 	local tc = g:GetFirst()
 	local opt = e:GetLabel()
 
-	Duel.Overlay(thisCard, Group.FromCards(tc))
+	if thisCard:IsLocation(LOCATION_ONFIELD) then
+		Duel.Overlay(thisCard, Group.FromCards(tc))
 
-	if (activatedCard:IsType(TYPE_MONSTER) and tc:IsType(TYPE_MONSTER)) or (activatedCard:IsType(TYPE_SPELL) and tc:IsType(TYPE_SPELL)) or (activatedCard:IsType(TYPE_TRAP) and tc:IsType(TYPE_TRAP)) then
-		Duel.NegateActivation(ev)
+		if (activatedCard:IsType(TYPE_MONSTER) and tc:IsType(TYPE_MONSTER)) or (activatedCard:IsType(TYPE_SPELL) and tc:IsType(TYPE_SPELL)) or (activatedCard:IsType(TYPE_TRAP) and tc:IsType(TYPE_TRAP)) then
+			Duel.NegateActivation(ev)
+		end
 	end
 end
 
