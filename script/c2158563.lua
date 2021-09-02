@@ -5,21 +5,16 @@ function s.initial_effect(c)
 	-- Destroy S/T
 	local e1=Effect.CreateEffect(c)
 	e1:SetDescription(aux.Stringid(id,0))
-	e1:SetCategory(CATEGORY_ATKCHANGE+CATEGORY_DEFCHANGE)
+	e1:SetCategory(CATEGORY_DESTROY)
 	e1:SetType(EFFECT_TYPE_QUICK_O)
-	e1:SetProperty(EFFECT_FLAG_CARD_TARGET+EFFECT_FLAG_DAMAGE_STEP)
+	e1:SetProperty(EFFECT_FLAG_CARD_TARGET)
 	e1:SetCode(EVENT_FREE_CHAIN)
 	e1:SetRange(LOCATION_HAND)
-	e1:SetHintTiming(TIMING_DAMAGE_STEP,TIMING_DAMAGE_STEP+TIMINGS_CHECK_MONSTER)
-	e1:SetCondition(s.adcon)
+	e1:SetHintTiming(0,TIMING_END_PHASE+TIMING_EQUIP)
 	e1:SetCost(s.adcost)
 	e1:SetTarget(s.adtg)
 	e1:SetOperation(s.adop)
 	c:RegisterEffect(e1)
-end
-
-function s.adcon(e,tp,eg,ep,ev,re,r,rp)
-	return Duel.GetCurrentPhase() ~= PHASE_DAMAGE or not Duel.IsDamageCalculated()
 end
 
 function s.adcost(e,tp,eg,ep,ev,re,r,rp,chk)
