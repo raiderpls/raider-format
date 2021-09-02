@@ -8,7 +8,7 @@ function s.initial_effect(c)
 
 	-- Attempt negate activation
 	local e1 = Effect.CreateEffect(c)
-	e1:SetDescription(aux.Stringid(id,1))
+	e1:SetDescription(aux.Stringid(id,0))
 	e1:SetCategory(CATEGORY_NEGATE)
 	e1:SetType(EFFECT_TYPE_QUICK_O)
 	e1:SetCode(EVENT_CHAINING)
@@ -104,7 +104,7 @@ function s.operation2(e,tp,eg,ep,ev,re,r,rp)
 		tc:RegisterEffect(e2)
 	end
 
-	if c:GetOverlayCount() == 0 and Duel.SelectYesNo(tp, aux.Stringid(id, 1)) then
+	if c:GetOverlayCount() == 0 and Duel.SelectYesNo(tp, aux.Stringid(id, 2)) then
 		Duel.Remove(c, c:GetPosition(), REASON_EFFECT+REASON_TEMPORARY)
 		local e1 = Effect.CreateEffect(e:GetHandler())
 		e1:SetType(EFFECT_TYPE_FIELD+EFFECT_TYPE_CONTINUOUS)
