@@ -120,7 +120,7 @@ function s.operation2(e,tp,eg,ep,ev,re,r,rp)
 end
 
 function s.returnToField(e,tp,eg,ep,ev,re,r,rp)
-	if Duel.GetTurnPlayer() ~= tp then
+	if e:GetHandler():IsLocation(LOCATION_REMOVED) and Duel.GetTurnPlayer() ~= tp then
 		Duel.ReturnToField(e:GetLabelObject())
 	end
 end
