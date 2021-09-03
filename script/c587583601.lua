@@ -45,7 +45,7 @@ function s.repcfilter(c)
 end
 function s.repcon(e)
   -- e is this replacement effect.
-	Debug.Message(e:GetHandler():GetCode())
+	--Debug.Message(e:GetHandler():GetCode())
 	return Duel.IsExistingMatchingCard(s.repcfilter,e:GetHandlerPlayer(),LOCATION_DECK,0,1,nil)
 end
 function s.repval(base,e,tp,eg,ep,ev,re,r,rp,chk)
