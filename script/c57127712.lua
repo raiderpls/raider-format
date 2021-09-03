@@ -81,7 +81,14 @@ function s.lvop(e,tp,eg,ep,ev,re,r,rp)
 end
 
 function s.val1(e,c)
-	local level = c:HasLevel() and c:GetLevel() or c:HasRank() and c:GetRank()
+	local level = 0
+
+	if c:HasLevel() then
+		level = c:GetLevel()
+
+	elseif c:HasRank() then
+		level = c:GetRank()
+	end
 
 	return level * 200
 end
