@@ -58,7 +58,21 @@ function s.destg(e,tp,eg,ep,ev,re,r,rp,chk,chkc)
     Duel.SetOperationInfo(0,CATEGORY_SPECIAL_SUMMON,nil,1,tp,LOCATION_GRAVE)
 end
 
+function s.splimit(e,c,sump,sumtype,sumpos,targetp)
+	return not c:IsAttribute(ATTRIBUTE_DARK)
+end
+
 function s.desop(e,tp,eg,ep,ev,re,r,rp)
+    local e2=Effect.CreateEffect(e:GetHandler())
+	e2:SetType(EFFECT_TYPE_FIELD)
+	e2:SetCode(EFFECT_CANNOT_SPECIAL_SUMMON)
+	e2:SetProperty(EFFECT_FLAG_PLAYER_TARGET+EFFECT_FLAG_OATH)
+	e2:SetTargetRange(1,0)
+	e2:SetTarget(s.splimit)
+	e2:SetReset(RESET_PHASE+PHASE_END)
+	Duel.RegisterEffect(e2,tp)
+	aux.RegisterClientHint(e:GetHandler(),nil,tp,1,0,aux.Stringid(id,2),nil)
+
     if Duel.GetLocationCount(tp,LOCATION_MZONE)<=0 then return end
     Duel.Hint(HINT_SELECTMSG,tp,HINTMSG_SPSUMMON)
     local g=Duel.SelectMatchingCard(tp,s.filter,tp,LOCATION_HAND+LOCATION_DECK,0,1,1,nil,e,tp)
