@@ -127,7 +127,7 @@ end
 -- Activation legality
 function s.condition3(e,tp,eg,ep,ev,re,r,rp)
 	local c=e:GetHandler()
-	return not c:IsLocation(LOCATION_DECK)
+	return c:IsPreviousLocation(LOCATION_ONFIELD)-- and not c:IsLocation(LOCATION_DECK)
 end
 
 function s.target3(e,tp,eg,ep,ev,re,r,rp,chk,chkc)
