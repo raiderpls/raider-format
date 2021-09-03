@@ -1,3 +1,5 @@
+-- Superdreadnought Rail Cannon Thunder Theodor
+-- raider
 local s,id=GetID()
 function s.initial_effect(c)
 	-- Xyz summon
