@@ -47,14 +47,14 @@ function s.target(e, tp, eg, ep, ev, re, r, rp, chk, chkc)
   Duel.SetOperationInfo(0,CATEGORY_POSITION,g,1,0,0)
 
   local c=e:GetHandler()
-  Debug.Message("hastype: " .. tostring(e:IsHasType(EFFECT_TYPE_ACTIVATE)))
-  Debug.Message("status: " .. tostring(c:IsStatus(STATUS_ACT_FROM_HAND)))
-  Debug.Message("prev fd: " .. tostring(c:IsPreviousPosition(POS_FACEDOWN)))
-  Debug.Message("opp turn: " .. tostring(Duel.GetTurnPlayer() ~= tp))
+--  Debug.Message("hastype: " .. tostring(e:IsHasType(EFFECT_TYPE_ACTIVATE)))
+--  Debug.Message("status: " .. tostring(c:IsStatus(STATUS_ACT_FROM_HAND)))
+--  Debug.Message("prev fd: " .. tostring(c:IsPreviousPosition(POS_FACEDOWN)))
+--  Debug.Message("opp turn: " .. tostring(Duel.GetTurnPlayer() ~= tp))
   local acthand = e:IsHasType(EFFECT_TYPE_ACTIVATE) and c:IsStatus(STATUS_ACT_FROM_HAND) and Duel.GetTurnPlayer() ~= tp
 
   if acthand then e:SetLabel(1) else e:SetLabel(0) end
-  Debug.Message(e:GetLabel())
+--  Debug.Message(e:GetLabel())
 end
 function s.activate(e,tp,eg,ep,ev,re,r,rp)
 	local tc=Duel.GetFirstTarget()
