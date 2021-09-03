@@ -38,23 +38,24 @@ s.listed_series = {0x128}
 function s.tgfilter(c)
   return c:IsFaceup() and c:IsCanTurnSet() and not c:IsRace(RACE_SPELLCASTER)
 end
+
 function s.target(e, tp, eg, ep, ev, re, r, rp, chk, chkc)
   if chkc then return chkc:IsControler(1-tp) and chkc:IsLocation(LOCATION_MZONE) and s.tgfilter(chkc) end
   if chk == 0 then return Duel.IsExistingTarget(s.tgfilter,tp,0,LOCATION_MZONE,1,nil) end
   Duel.Hint(HINT_SELECTMSG,tp,HINTMSG_FACEUP)
-  local g=Duel.SelectTarget(tp,s.filter,tp,0,LOCATION_MZONE,1,1,nil)
+  local g=Duel.SelectTarget(tp,s.tgfilter,tp,0,LOCATION_MZONE,1,1,nil)
   Duel.SetOperationInfo(0,CATEGORY_POSITION,g,1,0,0)
 
   local c=e:GetHandler()
-  --Debug.Message("hastype: " .. tostring(e:IsHasType(EFFECT_TYPE_ACTIVATE)))
-  --Debug.Message("status: " .. tostring(c:IsStatus(STATUS_ACT_FROM_HAND)))
-  --Debug.Message("prev fd: " .. tostring(c:IsPreviousPosition(POS_FACEDOWN)))
-  --Debug.Message("opp turn: " .. tostring(Duel.GetTurnPlayer() ~= tp))
+  Debug.Message("hastype: " .. tostring(e:IsHasType(EFFECT_TYPE_ACTIVATE)))
+  Debug.Message("status: " .. tostring(c:IsStatus(STATUS_ACT_FROM_HAND)))
+  Debug.Message("prev fd: " .. tostring(c:IsPreviousPosition(POS_FACEDOWN)))
+  Debug.Message("opp turn: " .. tostring(Duel.GetTurnPlayer() ~= tp))
   local acthand = e:IsHasType(EFFECT_TYPE_ACTIVATE) and c:IsStatus(STATUS_ACT_FROM_HAND)
     and not (c:IsPreviousPosition(POS_FACEDOWN) and POS_FACEDOWN) and Duel.GetTurnPlayer() ~= tp or 0
 
   if acthand then e:SetLabel(1) else e:SetLabel(0) end
-  --Debug.Message(e:GetLabel())
+  Debug.Message(e:GetLabel())
 end
 function s.activate(e,tp,eg,ep,ev,re,r,rp)
 	local tc=Duel.GetFirstTarget()
