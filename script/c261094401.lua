@@ -51,8 +51,7 @@ function s.target(e, tp, eg, ep, ev, re, r, rp, chk, chkc)
   Debug.Message("status: " .. tostring(c:IsStatus(STATUS_ACT_FROM_HAND)))
   Debug.Message("prev fd: " .. tostring(c:IsPreviousPosition(POS_FACEDOWN)))
   Debug.Message("opp turn: " .. tostring(Duel.GetTurnPlayer() ~= tp))
-  local acthand = e:IsHasType(EFFECT_TYPE_ACTIVATE) and c:IsStatus(STATUS_ACT_FROM_HAND)
-    and not (c:IsPreviousPosition(POS_FACEDOWN) and POS_FACEDOWN) and Duel.GetTurnPlayer() ~= tp or 0
+  local acthand = e:IsHasType(EFFECT_TYPE_ACTIVATE) and c:IsStatus(STATUS_ACT_FROM_HAND) and Duel.GetTurnPlayer() ~= tp
 
   if acthand then e:SetLabel(1) else e:SetLabel(0) end
   Debug.Message(e:GetLabel())
