@@ -44,7 +44,7 @@ function s.initial_effect(c)
 end
 
 function s.lvfilter(c)
-	return c:IsFaceup() and (c:HasLevel() or c:HasRank())
+	return c:IsFaceup() and (c:HasLevel() or tc:GetRank() > 0)
 end
 
 function s.lvtg(e,tp,eg,ep,ev,re,r,rp,chk)
@@ -69,7 +69,7 @@ function s.lvop(e,tp,eg,ep,ev,re,r,rp)
 				--e1:SetReset(RESET_EVENT+RESETS_STANDARD+RESET_PHASE+PHASE_END)
 				tc:RegisterEffect(e1)
 
-			elseif tc:HasRank() then
+			elseif tc:GetRank() > 0 then
 				e1:SetType(EFFECT_TYPE_SINGLE)
 				e1:SetCode(EFFECT_UPDATE_RANK)
 				e1:SetValue(lv)
@@ -86,7 +86,7 @@ function s.val1(e,c)
 	if c:HasLevel() then
 		level = c:GetLevel()
 
-	elseif c:HasRank() then
+	elseif tc:GetRank() > 0 then
 		level = c:GetRank()
 	end
 
@@ -113,7 +113,7 @@ function s.lvop2(e,tp,eg,ep,ev,re,r,rp)
 					Duel.Remove(tc,POS_FACEUP,REASON_EFFECT)
 				end
 
-			elseif tc:HasRank() then
+			elseif tc:GetRank() > 0 then
 				if tc:GetRank() > 3 then
 					e1:SetType(EFFECT_TYPE_SINGLE)
 					e1:SetCode(EFFECT_UPDATE_RANK)
