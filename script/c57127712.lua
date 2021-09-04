@@ -102,7 +102,7 @@ function s.lvop2(e,tp,eg,ep,ev,re,r,rp)
 			local e1=Effect.CreateEffect(tc)
 
 			if tc:HasLevel() then
-				if tc:GetLevel() > 3 then
+				if tc:GetLevel() >= 3 then
 					e1:SetType(EFFECT_TYPE_SINGLE)
 					e1:SetCode(EFFECT_UPDATE_LEVEL)
 					e1:SetValue(lv)
@@ -115,7 +115,7 @@ function s.lvop2(e,tp,eg,ep,ev,re,r,rp)
 				end
 
 			elseif tc:GetRank() > 0 then
-				if tc:GetRank() > 3 then
+				if tc:GetRank() >= 3 then
 					e1:SetType(EFFECT_TYPE_SINGLE)
 					e1:SetCode(EFFECT_UPDATE_RANK)
 					e1:SetValue(lv)
