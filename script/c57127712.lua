@@ -44,7 +44,7 @@ function s.initial_effect(c)
 end
 
 function s.lvfilter(c)
-	return c:IsFaceup() and (c:HasLevel() or tc:GetRank() > 0)
+	return c:IsFaceup() and (c:HasLevel() or c:GetRank() > 0)
 end
 
 function s.lvtg(e,tp,eg,ep,ev,re,r,rp,chk)
@@ -86,7 +86,7 @@ function s.val1(e,c)
 	if c:HasLevel() then
 		level = c:GetLevel()
 
-	elseif tc:GetRank() > 0 then
+	elseif c:GetRank() > 0 then
 		level = c:GetRank()
 	end
 
