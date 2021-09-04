@@ -109,8 +109,9 @@ function s.lvop2(e,tp,eg,ep,ev,re,r,rp)
 					--e1:SetReset(RESET_EVENT+RESETS_STANDARD+RESET_PHASE+PHASE_END)
 					tc:RegisterEffect(e1)
 
-				else
-					Duel.Remove(tc,POS_FACEUP,REASON_EFFECT)
+					if tc:GetLevel() <= 1 then
+						Duel.Remove(tc,POS_FACEUP,REASON_EFFECT)
+					end
 				end
 
 			elseif tc:GetRank() > 0 then
@@ -121,8 +122,9 @@ function s.lvop2(e,tp,eg,ep,ev,re,r,rp)
 					--e1:SetReset(RESET_EVENT+RESETS_STANDARD+RESET_PHASE+PHASE_END)
 					tc:RegisterEffect(e1)
 
-				else
-					Duel.Remove(tc,POS_FACEUP,REASON_EFFECT)
+					if tc:GetRank() <= 1 then
+						Duel.Remove(tc,POS_FACEUP,REASON_EFFECT)
+					end
 				end
 			end
 		end
