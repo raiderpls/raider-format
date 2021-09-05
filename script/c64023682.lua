@@ -147,8 +147,8 @@ end
 
 function s.ntg(e,tp,eg,ep,ev,re,r,rp,chk)
 	if chk==0 then return Duel.IsExistingMatchingCard(s.nfilter,tp,LOCATION_MZONE,LOCATION_MZONE,1,nil) end
-	local g=Duel.SelectTarget(tp,Card.IsFaceup,tp,LOCATION_MZONE,LOCATION_MZONE,1,1,nil)
 	Duel.Hint(HINT_SELECTMSG,tp,HINTMSG_FACEUP)
+	local g=Duel.SelectTarget(tp,s.nfilter,tp,LOCATION_MZONE,LOCATION_MZONE,1,1,nil)
 	Duel.SetOperationInfo(0,CATEGORY_DISABLE,g,1,0,0)
 end
 
