@@ -33,7 +33,7 @@ function s.initial_effect(c)
 end
 
 function s.xyzcheck(g,tp,xyz)
-	return g:GetClassCount(Card.GetAttribute)==#g and g:GetClassCount(Card.GetType, TYPE_TUNER) > 0
+	return g:GetClassCount(Card.GetAttribute)==#g and g:IsExists(Card.IsType,1,nil,TYPE_TUNER,lc,sumtype,tp)
 end
 
 function s.indcon(e)
