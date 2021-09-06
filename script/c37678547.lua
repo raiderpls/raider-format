@@ -30,7 +30,7 @@ end
 s.listed_series={0xd001}
 
 function s.ovfilter(c,tp,xyzc)
-	return c:IsFaceup() and c:IsSetCard(0xd001,xyzc,SUMMON_TYPE_XYZ,tp) and not c:IsSummonCode(xyzc,SUMMON_TYPE_XYZ,tp,id) and c:IsType(TYPE_XYZ,xyzc,SUMMON_TYPE_XYZ,tp)
+	return c:IsFaceup() and c:IsSetCard(0xd001,xyzc,SUMMON_TYPE_XYZ,tp) and and c:IsType(TYPE_XYZ,xyzc,SUMMON_TYPE_XYZ,tp)
 end
 
 function s.thcon(e,tp,eg,ep,ev,re,r,rp)
