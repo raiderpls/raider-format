@@ -38,10 +38,10 @@ function s.initial_effect(c)
 	c:RegisterEffect(e2)
 end
 
-s.listed_series={0xd001}
+s.listed_series={0xd01}
 
 function s.ovfilter(c,tp,xyzc)
-	return c:IsFaceup() and c:IsSetCard(0xd001,xyzc,SUMMON_TYPE_XYZ,tp) and not c:IsSummonCode(xyzc,SUMMON_TYPE_XYZ,tp,id) and c:IsType(TYPE_XYZ,xyzc,SUMMON_TYPE_XYZ,tp)
+	return c:IsFaceup() and c:IsSetCard(0xd01,xyzc,SUMMON_TYPE_XYZ,tp) and not c:IsSummonCode(xyzc,SUMMON_TYPE_XYZ,tp,id) and c:IsType(TYPE_XYZ,xyzc,SUMMON_TYPE_XYZ,tp)
 end
 
 function s.cost(e,tp,eg,ep,ev,re,r,rp,chk)
@@ -73,7 +73,7 @@ end
 function s.spfilter(c,e,tp)
     local otherNemesisMonsters = {[16719140] = true, [39581190] = true, [68823957] = true}
 
-	return c:IsType(TYPE_MONSTER) and (c:IsSetCard(0xd001) or otherNemesisMonsters[c:GetCode()] == true) and c:IsCanBeSpecialSummoned(e,0,tp,false,false)
+	return c:IsType(TYPE_MONSTER) and (c:IsSetCard(0xd01) or otherNemesisMonsters[c:GetCode()] == true) and c:IsCanBeSpecialSummoned(e,0,tp,false,false)
 end
 
 function s.sptg(e,tp,eg,ep,ev,re,r,rp,chk)
