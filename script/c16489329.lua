@@ -96,7 +96,7 @@ function s.spop(e,tp,eg,ep,ev,re,r,rp)
 	if chk==0 then return aux.SelectUnselectGroup(g,e,tp,1,#g,s.rescon,0) end
     local rg=aux.SelectUnselectGroup(g,e,tp,1,#g,s.rescon,1,tp,HINTMSG_REMOVE,s.rescon,nil,false)
 
-    for tc in aux.Next(g) do
+    for tc in aux.Next(rg) do
         if tc:IsLocation(LOCATION_ONFIELD) then
             Duel.Destroy(tc,REASON_EFFECT)
 
@@ -105,7 +105,7 @@ function s.spop(e,tp,eg,ep,ev,re,r,rp)
         end
     end
 
-    c:SetMaterial(g)
+    c:SetMaterial(rg)
     Duel.SpecialSummon(c,SUMMON_TYPE_RITUAL,tp,tp,false,true,POS_FACEUP)
     c:CompleteProcedure()
 end
