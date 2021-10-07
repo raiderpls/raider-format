@@ -29,6 +29,7 @@ function s.activate(e,tp,eg,ep,ev,re,r,rp)
 	if tc:IsRelateToEffect(e) and tc:IsFaceup() then
         -- Unaffected by other card effects
         local e1=Effect.CreateEffect(c)
+	e1:SetDescription(3100)
         e1:SetType(EFFECT_TYPE_SINGLE)
         e1:SetProperty(EFFECT_FLAG_SINGLE_RANGE+EFFECT_FLAG_CLIENT_HINT)
         e1:SetRange(LOCATION_MZONE)
