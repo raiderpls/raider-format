@@ -29,7 +29,7 @@ function s.initial_effect(c)
 end
 
 function s.value(e,c)
-	return Duel.GetMatchingGroupCount(Card.IsFacedown,0,LOCATION_REMOVED,0,nil)*500
+	return Duel.GetMatchingGroupCount(Card.IsFacedown,c:GetControler(),LOCATION_REMOVED,0,nil)*500
 end
 
 function s.rmtg(e,tp,eg,ep,ev,re,r,rp,chk)
