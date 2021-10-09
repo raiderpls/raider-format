@@ -52,7 +52,7 @@ function s.repval(base,e,tp,eg,ep,ev,re,r,rp,chk)
   -- base = the card that has the replace effect.
   -- e = the card that activates the effect to discard.
 	local c=e:GetHandler()
-	return c:IsControler(tp) and c:IsType(TYPE_MONSTER) and c:IsSetCard(0x128) and c ~= base
+	return c:IsControler(tp) and c:IsType(TYPE_MONSTER) and c:IsSetCard(0x128) and c ~= base:GetHandler()
 end
 function s.repop(base,e,tp,eg,ep,ev,re,r,rp)
   -- base = the card that has the replace effect.
