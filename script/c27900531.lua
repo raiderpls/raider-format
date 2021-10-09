@@ -11,11 +11,9 @@ function s.initial_effect(c)
 	e1:SetRange(LOCATION_MZONE)
 	e1:SetTargetRange(0,LOCATION_DECK)
 	c:RegisterEffect(e1)
-	--[[
 	local e2=e1:Clone()
 	e1:SetCode(EFFECT_CANNOT_TO_GRAVE)
 	c:RegisterEffect(e2)
-	--]]
 
 	-- Inflict Damage
 	local e3=Effect.CreateEffect(c)
