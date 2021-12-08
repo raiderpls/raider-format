@@ -71,7 +71,7 @@ function s.rescon(sg,e,tp,mg,c)
 end
 
 function s.cfilter(c)
-	return (c:IsLocation(LOCATION_MZONE)) or (c:IsLocation(LOCATION_GRAVE) and c:IsSetCard(0xea) and c:IsType(TYPE_TUNER) and c:IsAbleToRemove())
+	return c:HasLevel() and ((c:IsLocation(LOCATION_MZONE)) or (c:IsLocation(LOCATION_GRAVE) and c:IsSetCard(0xea) and c:IsType(TYPE_TUNER) and c:IsAbleToRemove()))
 end
 
 function s.spcost(e,tp,eg,ep,ev,re,r,rp,chk)
