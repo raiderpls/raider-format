@@ -74,7 +74,8 @@ function s.cfilter(c,tp)
 end
 
 function s.dfilter(c,rc,atr,lv)
-	return (not c:IsRace(rc))
+	return c:IsType(TYPE_MONSTER)
+		and (not c:IsRace(rc))
 		and (not c:IsAttribute(atr))
 		and (c:HasLevel() and (c:GetLevel() - lv == 1 or c:GetLevel() - lv == -1))
 		and c:IsAbleToRemove()
