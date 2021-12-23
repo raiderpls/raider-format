@@ -70,7 +70,7 @@ function s.spop(e,tp,eg,ep,ev,re,r,rp)
 end
 
 function s.cfilter(c,tp)
-	return c:IsAbleToRemoveAsCost() and Duel.IsExistingMatchingCard(s.dfilter,tp,LOCATION_DECK,0,1,nil,c:GetRace(),c:GetAttribute(),c:GetLevel())
+	return c:IsType(TYPE_MONSTER) and c:IsAbleToRemoveAsCost() and Duel.IsExistingMatchingCard(s.dfilter,tp,LOCATION_DECK,0,1,nil,c:GetRace(),c:GetAttribute(),c:GetLevel())
 end
 
 function s.dfilter(c,rc,atr,lv)
