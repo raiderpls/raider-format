@@ -49,7 +49,6 @@ function s.initial_effect(c)
 	-- Place a Crystal Beast from Deck to S/T Zone
 	local e4=Effect.CreateEffect(c)
 	e4:SetDescription(aux.Stringid(id,1))
-	--e4:SetCategory(CATEGORY_DESTROY)
 	e4:SetType(EFFECT_TYPE_IGNITION)
 	e4:SetRange(LOCATION_MZONE)
 	e4:SetCountLimit(1,0,EFFECT_COUNT_CODE_SINGLE)
@@ -84,7 +83,7 @@ end
 --
 
 function s.atkfilter(c)
-	return c:IsFaceup() and c:IsSetCard(0x1034) or c:IsSetCard(0xad)
+	return c:IsFaceup() and c:IsSetCard(0x1034)
 end
 
 function s.atkval(e,c)
